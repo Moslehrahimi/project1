@@ -32,43 +32,69 @@
 
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu-nav justify-content-end">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">خانه</a></li>
-                            <li class="nav-item"><a class="nav-link" href="feature.html">ویژگی ها</a></li>
-                            <li class="nav-item"><a class="nav-link" href="service.html">سرویس ها</a>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">قیمت</a>
+                            <li class="nav-item active"><a class="nav-link"
+                                    href="{{ route('home.index') }}">خانه</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('home.index') }}">دوره
+                                    ها</a></li>
+                            <li class="nav-item"><a class="nav-link" href="service.html">نمونه کار ها</a>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">صفحات</a>
+                                    aria-haspopup="true" aria-expanded="false">بلاگ ها</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="blog.html">بلاگ</a>
                                     <li class="nav-item"><a class="nav-link" href="blog-details.html">بلاگ
                                             با جزئیات</a>
                                 </ul>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">درباره ی ما</a>
                             <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
                         </ul>
 
                         <div class="nav-left text-center text-lg-left py-4 py-lg-0">
-                            {{--  <a class="button button-link ml-4" href="#"><span class="align-middle"><i
-                                        class="ti-comments"></i></span> چت آنلاین</a>  --}}
+
 
 
                             @if (Route::has('login'))
-                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+
                                 @auth
-                                    <a href="{{ url('/dashboard') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button"
+                                                class="button button-outline button-small" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                پروفایل
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <a class="dropdown-item" href="{{ route('profile.create') }}">پروفایل کاربری
+                                                </a>
+                                                @if (Auth::user()->role == 1)
+                                                    <a class="dropdown-item" href="{{route('admin.index')}}" target="_blank"">پنل مدیریت
+                                                    </a>
+                                                @endif
+
+                                                <form action="{{ url('logout') }}" method="POST">
+                                                    @csrf
+                                                    <button class="dropdown-item" type="submit">خروج</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 @else
                                     {{-- <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> --}}
-                                    <a class="button button-outline button-small" href="{{ url('/dashboard') }}">ورود </a>
+                                    <a class="button button-outline button-small" href="{{ route('home') }}">ورود
+                                    </a>
 
                                     @if (Route::has('register'))
                                         {{-- <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> --}}
-                                        <a class="button button-outline button-small" href="{{ route('register') }}"> ثبت
+                                        <a class="button button-outline button-small" href="{{ route('register') }}">
+                                            ثبت
                                             نام </a>
                                     @endif
                                 @endauth
-                                {{-- </div> --}}
+
                             @endif
 
                             {{-- <a class="button button-outline button-small" href="#">ورود / ثبت نام </a> --}}
@@ -158,6 +184,6 @@
     <script src="front/js/owl.carousel.min.js"></script>
     <script src="front/js/jquery.ajaxchimp.min.js"></script>
     <script src="front/js/scripts.js"></script>
-</body><!-- This template has been downloaded from Webrubik.com -->
+</body>
 
 </html>

@@ -775,7 +775,9 @@ h3, .h3 {
 }
 
 .hero-banner {
-    background: url(../pics/banner/hero-banner-bg.png) right center no-repeat;
+    background:
+     /* url(../pics/banner/hero-banner-bg.png) */
+      right center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 1;
