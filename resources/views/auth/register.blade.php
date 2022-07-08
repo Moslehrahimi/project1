@@ -1,4 +1,5 @@
 @extends('master.master')
+
 @section('content')
     <section class="hero-banner hero-banner-sm text-center">
         <div class="container">

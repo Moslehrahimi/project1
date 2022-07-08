@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>آموزش برنامه نویسی دلووپر آموز</title>
-    <link rel="icon" href="front/pics/Fevicon.png" type="image/png">
+    <link rel="icon" href="/front/pics/Fevicon.png" type="image/png">
     <!-- start style and css -->
-    <link rel="stylesheet" href="front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="front/css/themify-icons.css">
-    <link rel="stylesheet" href="front/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="front/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="front/css/style.css">
+    <link rel="stylesheet" href="/front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/front/css/themify-icons.css">
+    <link rel="stylesheet" href="/front/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/front/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/front/css/style.css">
 </head>
 
 <body>
@@ -33,9 +33,9 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu-nav justify-content-end">
                             <li class="nav-item active"><a class="nav-link"
-                                    href="{{ route('home.index') }}">خانه</a>
+                                    href="{{ route('dashboard.dashboard') }}">خانه</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('home.index') }}">دوره
+                            <li class="nav-item"><a class="nav-link" href="#">دوره
                                     ها</a></li>
                             <li class="nav-item"><a class="nav-link" href="service.html">نمونه کار ها</a>
                             <li class="nav-item submenu dropdown">
@@ -84,7 +84,7 @@
 
                                 @else
                                     {{-- <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> --}}
-                                    <a class="button button-outline button-small" href="{{ route('home') }}">ورود
+                                    <a class="button button-outline button-small" href="{{ route('login') }}">ورود
                                     </a>
 
                                     @if (Route::has('register'))

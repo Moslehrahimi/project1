@@ -12,10 +12,10 @@ use Laravel\Jetstream\Http\Controllers\Inertia\ProfilePhotoController;
 
 
 // Route::get('/', [Homecontroller::class , 'index']);
-Route::get('/', [Homecontroller::class , 'index'])->name('home.index');
+Route::get('/', [Homecontroller::class , 'index'])->name('dashboard.dashboard');
 
 
-Route::get('/dashboard/create', [Profilecontroller::class , 'create'])->name('profile.create');
+
 
 
 
@@ -27,11 +27,16 @@ Route::get('/dashboard/create', [Profilecontroller::class , 'create'])->name('pr
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
+
     Route::get('/dashboard', function () {
-            return view('home.home');
+            return view('dashboard.dashboard');
         }
-        )->name('home');
+        )->name('dashboard');
     });
+
+    Route::get('/dashboard/informatin/index', [Profilecontroller::class , 'index'])->name('information.index');
+
+    Route::get('/dashboard/information/create', [Profilecontroller::class , 'create'])->name('information.create');
 
 
 
