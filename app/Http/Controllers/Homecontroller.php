@@ -8,6 +8,11 @@ class Homecontroller extends Controller
 {
     public function index(){
 
-        return view('dashboard.dashboard');
+        $pagetitle='rahimi';
+
+        return view('dashboard.dashboard',compact('pagetitle'));
     }
-}
+
+    // $title = 'Welcome';
+
+    // return view('welcome', compact('title'));

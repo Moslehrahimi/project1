@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class Profilecontroller extends Controller
 {
@@ -13,7 +15,7 @@ class Profilecontroller extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +25,7 @@ class Profilecontroller extends Controller
      */
     public function create()
     {
-       return view ('profile.edit.create');
+
     }
 
     /**
@@ -54,9 +56,10 @@ class Profilecontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(user $user)
     {
-        //
+        $pagetitle='ویرایش پروفابل کاربری';
+        return view('profile.edit.profileedit',compact('pagetitle','user'));
     }
 
     /**

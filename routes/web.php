@@ -28,16 +28,13 @@ Route::get('/', [Homecontroller::class , 'index'])->name('dashboard.dashboard');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
 
-    Route::get('/dashboard', function () {
-            return view('dashboard.dashboard');
-        }
-        )->name('dashboard');
-    });
 
-    Route::get('/dashboard/informatin/index', [Profilecontroller::class , 'index'])->name('information.index');
+    Route::get('/dashboard', [Homecontroller::class , 'index'])->name('dashboard');
 
-    Route::get('/dashboard/information/create', [Profilecontroller::class , 'create'])->name('information.create');
+    Route::get('/dashboard/profile/edit/{user}', [Profilecontroller::class , 'edit'])->name('profile.edit');
 
+    Route::post('/dashboard/profile/update/{user}', [Profilecontroller::class , 'create'])->name('profile.update');
+});
 
 
 
@@ -46,3 +43,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 
 Route::get('/admin', [AdminHomecontroller::class , 'index'])->name('admin.index')->middleware('Chekrole');
+
+

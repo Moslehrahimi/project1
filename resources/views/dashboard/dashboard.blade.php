@@ -1,6 +1,6 @@
 @extends('master.master')
 
-
+@section('pagetitle')
 @section('content')
     <section class="hero-banner text-center">
         <div class="container">

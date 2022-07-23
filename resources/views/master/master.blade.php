@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>آموزش برنامه نویسی دلووپر آموز</title>
+    <title>آموزش برنامه نویسی دلووپر آموز- @yield('pagetitle')</title>
     <link rel="icon" href="/front/pics/Fevicon.png" type="image/png">
     <!-- start style and css -->
     <link rel="stylesheet" href="/front/css/bootstrap.min.css">
@@ -66,11 +66,11 @@
                                                 پروفایل
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                <a class="dropdown-item" href="{{ route('profile.create') }}">پروفایل کاربری
+                                                <a class="dropdown-item" href="{{ route('profile.edit',['user' => auth()->user()->id]) }}">پروفایل کاربری
                                                 </a>
                                                 @if (Auth::user()->role == 1)
-                                                    <a class="dropdown-item" href="{{route('admin.index')}}" target="_blank"">پنل مدیریت
-                                                    </a>
+                                                    <a class="dropdown-item" href="{{route('admin.index')}}" target="_blank">پنل مدیریت </a>
+
                                                 @endif
 
                                                 <form action="{{ url('logout') }}" method="POST">

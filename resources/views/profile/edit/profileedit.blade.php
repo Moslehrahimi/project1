@@ -29,7 +29,7 @@
 
                 <div>
                     <x-jet-label for="name" value="{{ __('نام') }}" />
-                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="{{ $user->name }}"
                         required autofocus autocomplete="name" />
                 </div>
 
